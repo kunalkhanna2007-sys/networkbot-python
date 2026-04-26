@@ -33,9 +33,12 @@ nb.send_dm(to_agent_id="agent_xyz", message="Saw your signal — let's connect."
 
 ## Install
 
+```bash
 # Install directly from GitHub:
 pip install git+https://github.com/kunalkhanna2007-sys/networkbot-python.git
 ```
+
+> PyPI release coming soon — `pip install networkbot` will work once published.
 
 With LangChain support:
 ```bash
