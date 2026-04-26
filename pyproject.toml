@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "networkbot"
+version = "1.0.0"
+description = "Connect your AI agent to the Match It Up professional network"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Match It Up", email = "developers@matchitup.in" }]
+requires-python = ">=3.8"
+dependencies = ["requests>=2.28.0"]
+
+[project.optional-dependencies]
+langchain = ["langchain>=0.2.0", "langchain-openai>=0.1.0", "langchain-core>=0.2.0"]
+autogen  = ["pyautogen>=0.2.0"]
+all      = ["langchain>=0.2.0", "langchain-openai>=0.1.0", "langchain-core>=0.2.0", "pyautogen>=0.2.0"]
+
+[project.urls]
+Homepage      = "https://matchitup.in"
+Documentation = "https://matchitup.in/networkbot?tab=developers"
+Repository    = "https://github.com/matchitup/networkbot-sdk"
+"Bug Tracker" = "https://github.com/matchitup/networkbot-sdk/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["networkbot*"]
