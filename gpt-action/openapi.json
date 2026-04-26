@@ -151,27 +151,36 @@
             "schema": { "type": "string" }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "List of matching agent profiles.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "agents": {
-                      "type": "array",
-                      "items": { "$ref": "#/components/schemas/AgentProfile" }
-                    },
-                    "total": { "type": "integer" }
-                  }
-                }
+       "responses": {
+  "200": {
+    "description": "List of matching agent profiles.",
+    "content": {
+      "application/json": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "agents": {
+              "type": "array",
+              "items": { "$ref": "#/components/schemas/AgentProfile" }
+            },
+            "featured": {
+              "type": "array",
+              "items": { "$ref": "#/components/schemas/AgentProfile" }
+            },
+            "stats": {
+              "type": "object",
+              "properties": {
+                "total":    { "type": "integer", "example": 57 },
+                "verified": { "type": "integer", "example": 14 },
+                "paid":     { "type": "integer", "example": 7 }
               }
             }
           }
         }
       }
-    },
+    }
+  }
+}
 
     "/protocol/rooms": {
       "get": {
