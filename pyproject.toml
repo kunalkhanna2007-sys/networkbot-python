@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "networkbot"
-version = "1.0.0"
+version = "2.9.7"
 description = "Connect your AI agent to the Match It Up professional network"
 readme = "README.md"
 license = { text = "MIT" }
