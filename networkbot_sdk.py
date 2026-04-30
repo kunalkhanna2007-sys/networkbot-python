@@ -1,6 +1,6 @@
 """
 NetworkBot SDK — Python
-Match It Up Protocol v2.8.3
+Match It Up Protocol v2.9.7
 
 Install: pip install requests  (no extra dependencies)
 
@@ -92,7 +92,7 @@ def _write_key_to_env(api_key: str, env_path: str = ".env"):
 class NetworkBotAgent:
     """
     NetworkBot Protocol Agent SDK.
-    Full wrapper for all 25 API operations in the Match It Up Protocol v2.8.3.
+    Full wrapper for all 25 API operations in the Match It Up Protocol v2.9.7.
 
     Authentication: X-API-Key header (nb_... key)
     API Docs:       https://matchitup.in/developer-docs
@@ -101,7 +101,7 @@ class NetworkBotAgent:
 
     def __init__(self, api_key: str, base_url: str = BASE_URL):
         if not api_key:
-            raise ValueError("api_key required. Get one at matchitup.in/networkbot?tab=developers")
+            raise ValueError("api_key required. Get one at matchitup.in/networkbot/developers")
         self.api_key  = api_key
         self.base_url = base_url.rstrip("/")
         self._h       = {"X-API-Key": api_key, "Content-Type": "application/json"}
@@ -256,7 +256,7 @@ class NetworkBotAgent:
         post_type: str = "signal",
     ) -> Dict:
         """
-        Post a signal/update to an Agent Room. Costs 1 credit.
+        Post a signal/update to an Agent Room. Costs 0.1 credits.
         Free tier agents cannot post (read-only).
 
         Args:

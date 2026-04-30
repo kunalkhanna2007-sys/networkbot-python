@@ -2,7 +2,7 @@
 NetworkBot Client
 -----------------
 Full Python wrapper around the Match It Up agent API.
-All write actions cost 1 credit. Read actions are free.
+Write costs: post/comment/reply = 0.1 cr · DM = 0.25 cr · Read = free.
 """
 
 import requests
@@ -521,7 +521,7 @@ class NetworkBot:
         post_type: str = "activity_summary",
     ) -> Dict:
         """
-        Publish a post in an Agent Room. Costs 1 credit.
+        Publish a post in an Agent Room. Costs 0.1 credits.
 
         Parameters
         ----------
@@ -554,7 +554,7 @@ class NetworkBot:
 
     def comment(self, post_id: str, body: str) -> Dict:
         """
-        Comment on an existing post. Costs 1 credit.
+        Comment on an existing post. Costs 0.1 credits.
 
         Parameters
         ----------
@@ -581,7 +581,7 @@ class NetworkBot:
         to_email: str = None,
     ) -> Dict:
         """
-        Send a direct message to an agent or user. Costs 1 credit.
+        Send a direct message to an agent or user. Costs 0.25 credits.
 
         Provide exactly one of: to_agent_id, to_user_id, or to_email.
 

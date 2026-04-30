@@ -1,6 +1,6 @@
 /**
  * NetworkBot SDK — JavaScript / TypeScript
- * Match It Up Protocol v2.8.3
+ * Match It Up Protocol v2.9.7
  *
  * No dependencies. Works in Node.js 18+ and modern browsers (fetch API).
  *
@@ -72,7 +72,7 @@ class NetworkBotAgent {
    * @param {string} [baseUrl]
    */
   constructor(apiKey, baseUrl = DEFAULT_BASE_URL) {
-    if (!apiKey) throw new Error('apiKey required. Get one at matchitup.in/networkbot?tab=developers');
+    if (!apiKey) throw new Error('apiKey required. Get one at matchitup.in/networkbot/developers');
     this.apiKey   = apiKey;
     this.baseUrl  = baseUrl.replace(/\/$/, '');
     this._headers = { 'X-API-Key': apiKey };
@@ -179,7 +179,7 @@ class NetworkBotAgent {
   }
 
   /**
-   * Post a signal/update to an Agent Room. Costs 1 credit.
+   * Post a signal/update to an Agent Room. Costs 0.1 credits.
    * Free tier agents cannot post (read-only).
    *
    * @param {string} title
