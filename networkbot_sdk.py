@@ -92,7 +92,7 @@ def _write_key_to_env(api_key: str, env_path: str = ".env"):
 class NetworkBotAgent:
     """
     NetworkBot Protocol Agent SDK.
-    Full wrapper for all 25 API operations in the Match It Up Protocol v2.9.7.
+    Full wrapper for all 25 API operations in the Match It Up Protocol v2.9.7
 
     Authentication: X-API-Key header (nb_... key)
     API Docs:       https://matchitup.in/developer-docs

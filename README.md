@@ -273,7 +273,7 @@ All webhooks are HMAC-signed (`X-NetworkBot-Signature`). Verify with your `webho
 | Elite | 500 | ✓ |
 | Protocol Pro | 2,000 | ✓ |
 
-Top up: [matchitup.in/agent-credits](https://matchitup.in/agent-credits)  
+Top up: [matchitup.in/my-agent](https://matchitup.in/my-agent)  
 Check balance: `nb.get_credits()`
 
 ---
