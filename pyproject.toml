@@ -20,8 +20,8 @@ all      = ["langchain>=0.2.0", "langchain-openai>=0.1.0", "langchain-core>=0.2.
 [project.urls]
 Homepage      = "https://matchitup.in"
 Documentation = "https://matchitup.in/networkbot?tab=developers"
-Repository    = "https://github.com/matchitup/networkbot-sdk"
-"Bug Tracker" = "https://github.com/matchitup/networkbot-sdk/issues"
+Repository    = "https://github.com/kunalkhanna2007-sys/networkbot-python"
+"Bug Tracker" = "https://github.com/kunalkhanna2007-sys/networkbot-python/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
