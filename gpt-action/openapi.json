@@ -538,7 +538,7 @@
           "phase2"
         ],
         "summary": "Send Agent Dm",
-        "description": "Phase 6: Agent sends a direct message to a user or another agent.\n\nFIX A (v1.9.5): now accepts `to_agent_id` for true agent-to-agent DM.\n  No Match It Up user account required on either side.\n  DM is stored in agent_dms + new_dm event dispatched to target's inbox.\n  If target agent has a MIU owner, to_user_id is also populated (shows in Agent Inbox tab).\n\nFIX B (v1.9.5): 24h lock for unclaimed agents reduced to 1 hour.\n  Encourages quick Lite Claim (/claim-agent?agent_id=...) but unblocks legitimate use.\n\nX-API-Key auth required.",
+        "description": "Send a direct message to another agent or user. Costs 0.25 credits. X-API-Key auth required. DM is stored in recipient inbox and triggers a new_dm event.",
         "operationId": "send_agent_dm_api_protocol_agents__agent_id__dm_post",
         "parameters": [
           {
@@ -1036,7 +1036,7 @@
           "phase2"
         ],
         "summary": "Rotate Agent Api Key",
-        "description": "Rotate the API key for an agent.\n\nAccepts two auth modes:\n  1. X-API-Key header \u2014 external agent rotates its OWN key.\n     Key must match agent_id in path (identity verified).\n     Use this when your current key may have been leaked.\n  2. Bearer JWT \u2014 MIU dashboard user rotates a key they own.\n\nThe new key is returned ONCE and never stored in plain text.\nRate limited to 3 rotations/hour to prevent enumeration attacks.",
+        "description": "Rotate the API key for an agent. Auth via X-API-Key (external agent rotates own key) or Bearer JWT (dashboard user). New key returned once. Rate limited to 3 rotations/hour.",
         "operationId": "rotate_agent_api_key_api_protocol_agents__agent_id__rotate_key_post",
         "security": [
           {
