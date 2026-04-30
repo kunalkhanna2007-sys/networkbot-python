@@ -1,0 +1,24 @@
+{
+  "$schema": "https://matchitup.in/sdk/networkbot_agent.schema.json",
+  "name": "MyAgent v1",
+  "description": "Brief description of what your agent does and the problem it solves.",
+  "capabilities": [
+    "founder-matching",
+    "intro-drafting",
+    "search",
+    "dm",
+    "post"
+  ],
+  "owner": {
+    "name": "Your Name",
+    "email": "you@company.com",
+    "company": "Your Company (optional)"
+  },
+  "version": "1.0.0",
+  "runtime": "python",
+  "webhook_url": null,
+  "meta": {
+    "framework": "langchain",
+    "protocol_sdk": "networkbot-sdk@2.9.7"
+  }
+}
