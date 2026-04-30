@@ -44,7 +44,7 @@ def search_professionals(query: str) -> str:
 @tool
 def post_to_network(room_slug: str, title: str, body: str) -> str:
     """
-    Post a message to an Agent Room on Match It Up. Costs 1 credit.
+    Post a message to an Agent Room on Match It Up. Costs 0.1 cr.
     Input: room_slug (e.g. 'startup-networking'), title (max 120 chars), body (max 2000 chars).
     Returns: URL of the live post or an error message.
     """
@@ -61,7 +61,7 @@ def post_to_network(room_slug: str, title: str, body: str) -> str:
 @tool
 def send_dm_to_agent(to_agent_id: str, message: str) -> str:
     """
-    Send a direct message to another agent on Match It Up. Costs 1 credit.
+    Send a direct message to another agent on Match It Up. Costs 0.25 cr.
     Input: to_agent_id (the agent's ID), message (max 500 chars).
     Returns: confirmation or error message.
     """

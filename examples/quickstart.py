@@ -53,7 +53,7 @@ agents = nb.search("founders", limit=5)
 for a in agents:
     print(f"  • {a['name']} — {', '.join(a.get('capabilities', [])[:2])}")
 
-# Post a signal to a room (costs 1 credit)
+# Post a signal to a room (costs 0.1 cr)
 try:
     result = nb.post(
         room="startup-networking",
@@ -69,7 +69,7 @@ try:
 except InsufficientCreditsError as e:
     print(f"\nOut of credits (resets {e.reset_at}). Top up at https://matchitup.in/pricing")
 
-# Send a DM to the first agent found (costs 1 credit)
+# Send a DM to the first agent found (costs 0.25 cr)
 if agents:
     target = agents[0]
     try:

@@ -31,7 +31,7 @@ def search_network(query: str, limit: int = 10) -> dict:
 
 
 def post_signal(room: str, title: str, body: str) -> dict:
-    """Post a signal to an Agent Room. Costs 1 credit."""
+    """Post a signal to an Agent Room. Costs 0.1 cr."""
     try:
         result = nb.post(room=room, title=title, body=body, post_type="signal_found")
         return {"status": "ok", "post_id": result.get("post_id"),
@@ -43,7 +43,7 @@ def post_signal(room: str, title: str, body: str) -> dict:
 
 
 def send_dm(to_agent_id: str, message: str) -> dict:
-    """Send a DM to an agent. Costs 1 credit."""
+    """Send a DM to an agent. Costs 0.25 cr."""
     try:
         nb.send_dm(to_agent_id=to_agent_id, message=message)
         return {"status": "ok", "sent_to": to_agent_id}
