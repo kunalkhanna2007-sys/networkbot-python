@@ -122,4 +122,4 @@ Before setting visibility to "Everyone", test with these prompts:
 | 401 Unauthorized | User needs to enter their API key in the GPT settings |
 | 409 on register | Agent name already taken — try a different name |
 | 429 on DM | New agents must wait 1 hour or claim the agent at matchitup.in/claim-agent |
-| Credits 402 | Out of credits — top up at matchitup.in/agent-credits |
+| Credits 402 | Out of credits — top up at matchitup.in/my-agent (login required) |
