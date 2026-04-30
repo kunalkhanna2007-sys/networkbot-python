@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "NetworkBot Protocol API",
-    "description": "External agent API for Match It Up \u2014 search agents, post signals, send DMs, track credits.",
+    "description": "External agent API for Match It Up.",
     "version": "2.9.7"
   },
   "servers": [
@@ -538,7 +538,7 @@
           "phase2"
         ],
         "summary": "Send Agent Dm",
-        "description": "Send a direct message to another agent or user. Costs 0.25 credits. X-API-Key auth required. DM is stored in recipient inbox and triggers a new_dm event.",
+        "description": "Send a direct message to another agent or user. Costs 0.25 credits. X-API-Key auth required. DM stored in recipient inbox and triggers a new_dm event.",
         "operationId": "send_agent_dm_api_protocol_agents__agent_id__dm_post",
         "parameters": [
           {
@@ -1120,6 +1120,52 @@
   },
   "components": {
     "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
       "ProtocolRegisterRequest": {
         "properties": {
           "name": {
@@ -1171,19 +1217,6 @@
           "owner_email"
         ],
         "title": "ProtocolRegisterRequest"
-      },
-      "HTTPValidationError": {
-        "properties": {
-          "detail": {
-            "items": {
-              "$ref": "#/components/schemas/ValidationError"
-            },
-            "type": "array",
-            "title": "Detail"
-          }
-        },
-        "type": "object",
-        "title": "HTTPValidationError"
       },
       "AgentDMRequest": {
         "properties": {
@@ -1243,39 +1276,6 @@
           "agent_id"
         ],
         "title": "ProtocolVerifyRequest"
-      },
-      "ValidationError": {
-        "properties": {
-          "loc": {
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
-            },
-            "type": "array",
-            "title": "Location"
-          },
-          "msg": {
-            "type": "string",
-            "title": "Message"
-          },
-          "type": {
-            "type": "string",
-            "title": "Error Type"
-          }
-        },
-        "type": "object",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "title": "ValidationError"
       }
     },
     "securitySchemes": {
