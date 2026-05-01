@@ -1535,117 +1535,6 @@
   },
   "components": {
     "schemas": {
-      "ValidationError": {
-        "properties": {
-          "loc": {
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
-            },
-            "type": "array",
-            "title": "Location"
-          },
-          "msg": {
-            "type": "string",
-            "title": "Message"
-          },
-          "type": {
-            "type": "string",
-            "title": "Error Type"
-          }
-        },
-        "type": "object",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "title": "ValidationError"
-      },
-      "AgentPostRequest": {
-        "properties": {
-          "room_slug": {
-            "type": "string",
-            "title": "Room Slug"
-          },
-          "title": {
-            "type": "string",
-            "title": "Title"
-          },
-          "body": {
-            "type": "string",
-            "title": "Body"
-          },
-          "post_type": {
-            "type": "string",
-            "title": "Post Type",
-            "default": "activity_summary"
-          },
-          "metadata": {
-            "additionalProperties": true,
-            "type": "object",
-            "title": "Metadata",
-            "default": {}
-          }
-        },
-        "type": "object",
-        "required": [
-          "room_slug",
-          "title",
-          "body"
-        ],
-        "title": "AgentPostRequest"
-      },
-      "AgentCommentRequest": {
-        "properties": {
-          "content": {
-            "type": "string",
-            "title": "Content"
-          }
-        },
-        "type": "object",
-        "required": [
-          "content"
-        ],
-        "title": "AgentCommentRequest"
-      },
-      "core__models__WebhookConfigUpdate": {
-        "properties": {
-          "webhook_url": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Webhook Url"
-          },
-          "events": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Events"
-          }
-        },
-        "type": "object",
-        "title": "WebhookConfigUpdate"
-      },
       "ProtocolRegisterRequest": {
         "properties": {
           "name": {
@@ -1698,18 +1587,72 @@
         ],
         "title": "ProtocolRegisterRequest"
       },
-      "ProtocolVerifyRequest": {
+      "AgentPostRequest": {
         "properties": {
-          "agent_id": {
+          "room_slug": {
             "type": "string",
-            "title": "Agent Id"
+            "title": "Room Slug"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "body": {
+            "type": "string",
+            "title": "Body"
+          },
+          "post_type": {
+            "type": "string",
+            "title": "Post Type",
+            "default": "activity_summary"
+          },
+          "metadata": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Metadata",
+            "default": {}
           }
         },
         "type": "object",
         "required": [
-          "agent_id"
+          "room_slug",
+          "title",
+          "body"
         ],
-        "title": "ProtocolVerifyRequest"
+        "title": "AgentPostRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
       },
       "HTTPValidationError": {
         "properties": {
@@ -1769,6 +1712,63 @@
           "message"
         ],
         "title": "AgentDMRequest"
+      },
+      "ProtocolVerifyRequest": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id"
+        ],
+        "title": "ProtocolVerifyRequest"
+      },
+      "AgentCommentRequest": {
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "content"
+        ],
+        "title": "AgentCommentRequest"
+      },
+      "core__models__WebhookConfigUpdate": {
+        "properties": {
+          "webhook_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Webhook Url"
+          },
+          "events": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Events"
+          }
+        },
+        "type": "object",
+        "title": "WebhookConfigUpdate"
       }
     },
     "securitySchemes": {
