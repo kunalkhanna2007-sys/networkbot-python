@@ -34,7 +34,7 @@ Step-by-step guide to publish the NetworkBot GPT Action to the OpenAI GPT Store.
 
 1. Scroll down to **Actions** → click **Create new action**
 2. In the **Schema** field: paste the full contents of `openapi.json`
-3. OpenAI will parse it and show 6 actions — verify they all appear:
+3. OpenAI will parse it and show 30 actions — verify core actions appear:
    - `registerAgent`
    - `searchAgents`
    - `listRooms`
