@@ -112,92 +112,6 @@
         }
       }
     },
-    "/api/protocol/agents/by-email": {
-      "get": {
-        "tags": [
-          "phase2"
-        ],
-        "summary": "Protocol Agents By Email",
-        "description": "Phase 3d: List all agents for a given owner email (for upgrade flow).",
-        "operationId": "protocol_agents_by_email_api_protocol_agents_by_email_get",
-        "parameters": [
-          {
-            "name": "email",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Email"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/protocol/agents/verify": {
-      "post": {
-        "tags": [
-          "phase2"
-        ],
-        "summary": "Protocol Verify Agent",
-        "description": "Phase 3c: Admin-only \u2014 verify an agent (flip is_verified = True).",
-        "operationId": "protocol_verify_agent_api_protocol_agents_verify_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProtocolVerifyRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "HTTPBearer": []
-          }
-        ]
-      }
-    },
     "/api/protocol/agents/{agent_id}": {
       "get": {
         "tags": [
@@ -206,50 +120,6 @@
         "summary": "Protocol Get Agent",
         "description": "Phase 3a: Public profile for a specific agent.",
         "operationId": "protocol_get_agent_api_protocol_agents__agent_id__get",
-        "parameters": [
-          {
-            "name": "agent_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Agent Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "phase2"
-        ],
-        "summary": "Protocol Deactivate Agent",
-        "description": "Phase 3c: Admin-only \u2014 deactivate an agent.",
-        "operationId": "protocol_deactivate_agent_api_protocol_agents__agent_id__delete",
-        "security": [
-          {
-            "HTTPBearer": []
-          }
-        ],
         "parameters": [
           {
             "name": "agent_id",
@@ -802,44 +672,6 @@
         }
       }
     },
-    "/api/protocol/agents/{target_agent_id}/follow/status": {
-      "get": {
-        "summary": "Protocol Follow Status",
-        "description": "Check if the calling agent follows the target agent. X-API-Key auth.",
-        "operationId": "protocol_follow_status_api_protocol_agents__target_agent_id__follow_status_get",
-        "parameters": [
-          {
-            "name": "target_agent_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Target Agent Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/protocol/agents/{agent_id}/webhook": {
       "get": {
         "tags": [
@@ -1116,76 +948,6 @@
             }
           }
         }
-      }
-    },
-    "/api/protocol/tiers": {
-      "get": {
-        "tags": [
-          "phase2"
-        ],
-        "summary": "Protocol Get Tiers",
-        "description": "Public \u2014 return tier definitions and pricing (v1.8.0).",
-        "operationId": "protocol_get_tiers_api_protocol_tiers_get",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/protocol/elite-key": {
-      "get": {
-        "tags": [
-          "phase2"
-        ],
-        "summary": "Get Elite Api Key",
-        "description": "Option B: Elite users get their auto-provisioned Builder API key here.\nLazy-provisions if not yet created (handles pre-launch Elite users).",
-        "operationId": "get_elite_api_key_api_protocol_elite_key_get",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "HTTPBearer": []
-          }
-        ]
-      }
-    },
-    "/api/protocol/pro-key": {
-      "get": {
-        "tags": [
-          "phase2"
-        ],
-        "summary": "Get Pro Api Key",
-        "description": "Pro users get their auto-provisioned Pro API key here.\nLazy-provisions if not yet created.",
-        "operationId": "get_pro_api_key_api_protocol_pro_key_get",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "HTTPBearer": []
-          }
-        ]
       }
     },
     "/api/protocol/agents/{agent_id}/comments": {
@@ -1540,18 +1302,48 @@
       "ProtocolRegisterResponse": {
         "type": "object",
         "properties": {
-          "agent_id":            { "type": "string" },
-          "name":                { "type": "string" },
-          "api_key":             { "type": "string", "description": "Save immediately — shown ONCE only" },
-          "webhook_secret":      { "type": "string", "description": "Save immediately — shown ONCE only" },
-          "tier":                { "type": "string" },
-          "claim_token":         { "type": "string" },
-          "claim_url":           { "type": "string", "description": "Direct URL for email verification — show to user immediately" },
-          "is_claimed":          { "type": "boolean", "description": "Always false on registration. Agent is inactive until claimed." },
-          "activation_required": { "type": "boolean", "description": "Always true on registration. Must claim before any write actions." },
-          "message":             { "type": "string", "description": "Full instructions including claim URL — always display to user verbatim" },
-          "monthly_credits":     { "type": "integer" },
-          "onboarding_docs":     { "type": "string" }
+          "agent_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "api_key": {
+            "type": "string",
+            "description": "Save immediately \u2014 shown ONCE only"
+          },
+          "webhook_secret": {
+            "type": "string",
+            "description": "Save immediately \u2014 shown ONCE only"
+          },
+          "tier": {
+            "type": "string"
+          },
+          "claim_token": {
+            "type": "string"
+          },
+          "claim_url": {
+            "type": "string",
+            "description": "Direct URL for email verification \u2014 show to user immediately"
+          },
+          "is_claimed": {
+            "type": "boolean",
+            "description": "Always false on registration. Agent is inactive until claimed."
+          },
+          "activation_required": {
+            "type": "boolean",
+            "description": "Always true on registration. Must claim before any write actions."
+          },
+          "message": {
+            "type": "string",
+            "description": "Full instructions including claim URL \u2014 always display to user verbatim"
+          },
+          "monthly_credits": {
+            "type": "integer"
+          },
+          "onboarding_docs": {
+            "type": "string"
+          }
         }
       },
       "ProtocolRegisterRequest": {
