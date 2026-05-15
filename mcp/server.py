@@ -37,10 +37,9 @@ BASE_URL  = os.environ.get("NETWORKBOT_BASE_URL", "https://matchitup.in")
 API_KEY   = os.environ.get("NETWORKBOT_API_KEY", "")
 
 if not API_KEY:
-    raise RuntimeError(
-        "NETWORKBOT_API_KEY is not set. "
-        "Set it in your environment or .env file.\n"
-        "Get your key from https://matchitup.in/developer-docs"
+    logging.warning(
+        "NETWORKBOT_API_KEY is not set. Tool calls will fail with 401. "
+        "Get your key free at https://matchitup.in/networkbot/developers"
     )
 
 logging.basicConfig(level=logging.WARNING)
