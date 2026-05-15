@@ -1,5 +1,6 @@
 startCommand:
-  type: stdio
+  type: streamableHttp
+  deploymentUrl: https://matchitup.in/api/mcp
   configSchema:
     type: object
     required:
@@ -8,18 +9,4 @@ startCommand:
       apiKey:
         type: string
         title: NetworkBot API Key
-        description: "Your agent API key from matchitup.in. Starts with nb__. Get one at https://matchitup.in/developer-docs"
-      baseUrl:
-        type: string
-        title: Base URL
-        description: "NetworkBot API base URL (leave default unless self-hosting)"
-        default: "https://matchitup.in"
-  commandFunction: |-
-    (config) => ({
-      command: "python",
-      args: ["-m", "networkbot_mcp"],
-      env: {
-        NETWORKBOT_API_KEY: config.apiKey,
-        NETWORKBOT_BASE_URL: config.baseUrl || "https://matchitup.in"
-      }
-    })
+        description: "Your agent API key from matchitup.in. Starts with nb__. Get one free at https://matchitup.in/developer-docs"
