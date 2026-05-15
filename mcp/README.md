@@ -3,7 +3,7 @@
 Give Claude native access to the [Match It Up](https://matchitup.in) professional networking platform. Browse members, send DMs, post signals, manage bonds, and more — 25 tools, zero per-tool authentication.
 
 [![PyPI version](https://badge.fury.io/py/networkbot-mcp.svg)](https://pypi.org/project/networkbot-mcp/)
-[![Smithery](https://smithery.ai/badge/@matchitup-tech/networkbot)](https://smithery.ai/servers/@matchitup-tech/networkbot)
+[![Smithery](https://smithery.ai/badge/@matchitup-tech/networkbot)](https://smithery.ai/server/@matchitup-tech/networkbot)
 [![Glama](https://glama.ai/mcp/servers/kunalkhanna2007-sys/networkbot-python/badge)](https://glama.ai/mcp/servers/kunalkhanna2007-sys/networkbot-python)
 
 ## Tools (25 total)
@@ -40,9 +40,9 @@ Give Claude native access to the [Match It Up](https://matchitup.in) professiona
 
 ### Option A — Smithery (zero install, hosted)
 
-1. Go to [smithery.ai/servers/@matchitup-tech/networkbot](https://smithery.ai/servers/@matchitup-tech/networkbot)
+1. Go to [smithery.ai/server/@matchitup-tech/networkbot](https://smithery.ai/server/@matchitup-tech/networkbot)
 2. Click **Add to Claude**
-3. Enter your `nb__...` API key once — all 25 tools available immediately
+3. Enter your `nb_...` API key once — all 25 tools available immediately
 
 ### Option B — pip (Claude Desktop / Cursor / VS Code)
 
@@ -50,7 +50,7 @@ Give Claude native access to the [Match It Up](https://matchitup.in) professiona
 pip install networkbot-mcp
 ```
 
-Get your API key at [matchitup.in/developer-docs](https://matchitup.in/developer-docs). Keys start with `nb__`.
+Get your API key at [matchitup.in/developer-docs](https://matchitup.in/developer-docs). Keys start with `nb_`.
 
 **Claude Desktop** (`~/.claude/claude_desktop_config.json`):
 
@@ -60,7 +60,7 @@ Get your API key at [matchitup.in/developer-docs](https://matchitup.in/developer
     "networkbot": {
       "command": "networkbot-mcp",
       "env": {
-        "NETWORKBOT_API_KEY": "nb__your_key_here"
+        "NETWORKBOT_API_KEY": "nb_your_key_here"
       }
     }
   }
@@ -76,7 +76,7 @@ Get your API key at [matchitup.in/developer-docs](https://matchitup.in/developer
       "networkbot": {
         "command": "networkbot-mcp",
         "env": {
-          "NETWORKBOT_API_KEY": "nb__your_key_here"
+          "NETWORKBOT_API_KEY": "nb_your_key_here"
         }
       }
     }
@@ -90,7 +90,7 @@ Get your API key at [matchitup.in/developer-docs](https://matchitup.in/developer
 git clone https://github.com/kunalkhanna2007-sys/networkbot-python
 cd networkbot-python/mcp
 pip install -e .
-NETWORKBOT_API_KEY=nb__your_key networkbot-mcp
+NETWORKBOT_API_KEY=nb_your_key networkbot-mcp
 ```
 
 ## What you can do with Claude
@@ -114,7 +114,8 @@ Once connected, just ask Claude naturally:
 
 - [matchitup.in](https://matchitup.in) — platform
 - [Developer Docs](https://matchitup.in/developer-docs)
-- [Smithery listing](https://smithery.ai/servers/@matchitup-tech/networkbot)
+- [MCP Discovery Manifest](https://matchitup.in/.well-known/mcp.json)
+- [Smithery listing](https://smithery.ai/server/@matchitup-tech/networkbot)
 - [Glama listing](https://glama.ai/mcp/servers/kunalkhanna2007-sys/networkbot-python)
 - [PyPI](https://pypi.org/project/networkbot-mcp/)
 

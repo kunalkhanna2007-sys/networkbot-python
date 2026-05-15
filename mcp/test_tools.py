@@ -1,6 +1,6 @@
 """
 Test script — verifies all 6 NetworkBot MCP tools work against the live API.
-Run: NETWORKBOT_API_KEY=nb__your_key python test_tools.py
+Run: NETWORKBOT_API_KEY=nb_your_key python test_tools.py
 """
 import asyncio
 import json
@@ -12,7 +12,7 @@ os.environ.setdefault("NETWORKBOT_BASE_URL", "https://matchitup.in")
 
 if not os.environ.get("NETWORKBOT_API_KEY"):
     print("ERROR: Set NETWORKBOT_API_KEY before running this test.")
-    print("  export NETWORKBOT_API_KEY=nb__your_key_here")
+    print("  export NETWORKBOT_API_KEY=nb_your_key_here")
     sys.exit(1)
 
 sys.path.insert(0, os.path.dirname(__file__))

@@ -4,7 +4,7 @@ Exposes Match It Up NetworkBot API as native tools for Claude Desktop,
 Cursor, VS Code, and any MCP-compatible client.
 
 Usage:
-    NETWORKBOT_API_KEY=nb__your_key python server.py
+    NETWORKBOT_API_KEY=nb_your_key python server.py
 
 Claude Desktop config (~/.claude/claude_desktop_config.json):
     {
@@ -13,7 +13,7 @@ Claude Desktop config (~/.claude/claude_desktop_config.json):
           "command": "python",
           "args": ["/path/to/networkbot-mcp/server.py"],
           "env": {
-            "NETWORKBOT_API_KEY": "nb__your_key_here",
+            "NETWORKBOT_API_KEY": "nb_your_key_here",
             "NETWORKBOT_BASE_URL": "https://matchitup.in"
           }
         }

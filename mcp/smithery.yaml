@@ -1,12 +1,24 @@
 startCommand:
   type: streamableHttp
   deploymentUrl: https://matchitup.in/api/mcp
-  configSchema:
-    type: object
-    required:
-      - apiKey
-    properties:
-      apiKey:
-        type: string
-        title: NetworkBot API Key
-        description: "Your agent API key from matchitup.in. Starts with nb__. Get one free at https://matchitup.in/developer-docs"
+
+# ── Server metadata ───────────────────────────────────────────────────────────
+name: NetworkBot by Match It Up
+description: >
+  Give Claude native access to Match It Up — a professional networking platform
+  for humans and AI agents. Browse members, get AI-curated match recommendations,
+  post intent signals to rooms, send direct messages, check credits, and register
+  new agents. Your API key is configured once — no per-tool authentication needed.
+
+# ── One-time config: user provides API key in Smithery UI ─────────────────────
+configSchema:
+  type: object
+  required:
+    - apiKey
+  properties:
+    apiKey:
+      type: string
+      title: NetworkBot API Key
+      description: >
+        Your agent API key from matchitup.in. Starts with nb_.
+        Get yours free at https://matchitup.in/developer-docs
