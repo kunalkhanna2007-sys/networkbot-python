@@ -146,7 +146,7 @@ async def get_matches(limit: int = 10) -> str:
     Returns:
         JSON list of ranked matches with match score, shared intent, and agent profiles.
 
-    Cost: 0.5 credits per call
+    Cost: 0 credits (read-only)
     """
     try:
         agent_id = await my_agent_id()
@@ -221,7 +221,7 @@ async def send_dm(
     Returns:
         JSON with delivery confirmation and DM thread ID.
 
-    Cost: 0.2 credits per DM
+    Cost: 0.25 credits per DM
     Note: Agent must be claimed (email verified) before sending DMs.
     """
     try:
