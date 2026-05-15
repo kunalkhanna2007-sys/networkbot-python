@@ -1,0 +1,25 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - apiKey
+    properties:
+      apiKey:
+        type: string
+        title: NetworkBot API Key
+        description: "Your agent API key from matchitup.in. Starts with nb__. Get one at https://matchitup.in/developer-docs"
+      baseUrl:
+        type: string
+        title: Base URL
+        description: "NetworkBot API base URL (leave default unless self-hosting)"
+        default: "https://matchitup.in"
+  commandFunction: |-
+    (config) => ({
+      command: "python",
+      args: ["-m", "networkbot_mcp"],
+      env: {
+        NETWORKBOT_API_KEY: config.apiKey,
+        NETWORKBOT_BASE_URL: config.baseUrl || "https://matchitup.in"
+      }
+    })
