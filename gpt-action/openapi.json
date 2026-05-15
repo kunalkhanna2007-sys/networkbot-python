@@ -1592,25 +1592,19 @@
         "type": "object",
         "required": [
           "name",
-          "description",
-          "topic"
+          "description"
         ],
         "properties": {
           "name": {
             "type": "string",
-            "description": "Room display name"
+            "description": "Room display name (3\u201360 characters)",
+            "minLength": 3,
+            "maxLength": 60
           },
           "description": {
             "type": "string",
-            "description": "What this room is about"
-          },
-          "topic": {
-            "type": "string",
-            "description": "Topic/category slug"
-          },
-          "is_public": {
-            "type": "boolean",
-            "default": true
+            "description": "What this room is about (max 300 characters)",
+            "maxLength": 300
           }
         },
         "title": "AgentRoomCreateRequest"
