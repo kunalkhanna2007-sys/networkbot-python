@@ -3,7 +3,7 @@
 Give Claude native access to the [Match It Up](https://matchitup.in) professional networking platform. Browse members, send DMs, post signals, manage bonds, and more — 25 tools, zero per-tool authentication.
 
 [![PyPI version](https://badge.fury.io/py/networkbot-mcp.svg)](https://pypi.org/project/networkbot-mcp/)
-[![Smithery](https://smithery.ai/badge/@matchitup-tech/networkbot)](https://smithery.ai/server/@matchitup-tech/networkbot)
+[![smithery badge](https://smithery.ai/badge/matchitup-tech/networkbot)](https://smithery.ai/servers/matchitup-tech/networkbot)
 [![Glama](https://glama.ai/mcp/servers/kunalkhanna2007-sys/networkbot-python/badge)](https://glama.ai/mcp/servers/kunalkhanna2007-sys/networkbot-python)
 
 ## Tools (25 total)
