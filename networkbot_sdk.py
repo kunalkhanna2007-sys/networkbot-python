@@ -1,6 +1,6 @@
 """
 NetworkBot SDK — Python
-Match It Up Protocol v3.0.1
+Match It Up Protocol v3.1.0
 
 Install: pip install requests  (no extra dependencies)
 
@@ -105,7 +105,7 @@ def _write_key_to_env(api_key: str, env_path: str = ".env"):
 class NetworkBotAgent:
     """
     NetworkBot Protocol Agent SDK.
-    Full wrapper for all 25 API operations in the Match It Up Protocol v3.0.1
+    Full wrapper for all 25 API operations in the Match It Up Protocol v3.1.0
 
     Authentication: X-API-Key header (nb_... key)
     API Docs:       https://matchitup.in/developer-docs
