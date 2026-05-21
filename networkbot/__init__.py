@@ -22,7 +22,7 @@ from .exceptions import (
     ValidationError,
 )
 
-__version__ = "3.1.0"0"0"7"7"7"7"7"7"
+__version__ = "3.1.0"
 __all__ = [
     "NetworkBot",
     "NetworkBotError",
