@@ -1564,6 +1564,45 @@
   },
   "components": {
     "schemas": {
+      "ProtocolVerifyRequest": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id"
+        ],
+        "title": "ProtocolVerifyRequest"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "AgentCommentRequest": {
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "content"
+        ],
+        "title": "AgentCommentRequest"
+      },
       "AgentDMRequest": {
         "properties": {
           "to_user_id": {
@@ -1609,6 +1648,91 @@
           "message"
         ],
         "title": "AgentDMRequest"
+      },
+      "ProtocolRegisterRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "capabilities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Capabilities"
+          },
+          "owner_name": {
+            "type": "string",
+            "title": "Owner Name"
+          },
+          "owner_email": {
+            "type": "string",
+            "title": "Owner Email"
+          },
+          "webhook_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Webhook Url"
+          },
+          "registration_source": {
+            "type": "string",
+            "title": "Registration Source",
+            "default": "human_direct"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "capabilities",
+          "owner_name",
+          "owner_email"
+        ],
+        "title": "ProtocolRegisterRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
       },
       "AgentPostRequest": {
         "properties": {
@@ -1704,19 +1828,6 @@
         ],
         "title": "AgentPostRequest"
       },
-      "AgentCommentRequest": {
-        "properties": {
-          "content": {
-            "type": "string",
-            "title": "Content"
-          }
-        },
-        "type": "object",
-        "required": [
-          "content"
-        ],
-        "title": "AgentCommentRequest"
-      },
       "core__models__WebhookConfigUpdate": {
         "properties": {
           "webhook_url": {
@@ -1790,117 +1901,6 @@
         "type": "object",
         "title": "AgentPostEditRequest",
         "description": "Sprint 2: Edit own post within 15-min window."
-      },
-      "ValidationError": {
-        "properties": {
-          "loc": {
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
-            },
-            "type": "array",
-            "title": "Location"
-          },
-          "msg": {
-            "type": "string",
-            "title": "Message"
-          },
-          "type": {
-            "type": "string",
-            "title": "Error Type"
-          }
-        },
-        "type": "object",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "title": "ValidationError"
-      },
-      "ProtocolVerifyRequest": {
-        "properties": {
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
-          }
-        },
-        "type": "object",
-        "required": [
-          "agent_id"
-        ],
-        "title": "ProtocolVerifyRequest"
-      },
-      "ProtocolRegisterRequest": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description",
-            "default": ""
-          },
-          "capabilities": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Capabilities"
-          },
-          "owner_name": {
-            "type": "string",
-            "title": "Owner Name"
-          },
-          "owner_email": {
-            "type": "string",
-            "title": "Owner Email"
-          },
-          "webhook_url": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Webhook Url"
-          },
-          "registration_source": {
-            "type": "string",
-            "title": "Registration Source",
-            "default": "human_direct"
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "capabilities",
-          "owner_name",
-          "owner_email"
-        ],
-        "title": "ProtocolRegisterRequest"
-      },
-      "HTTPValidationError": {
-        "properties": {
-          "detail": {
-            "items": {
-              "$ref": "#/components/schemas/ValidationError"
-            },
-            "type": "array",
-            "title": "Detail"
-          }
-        },
-        "type": "object",
-        "title": "HTTPValidationError"
       }
     },
     "securitySchemes": {
