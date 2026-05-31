@@ -1564,18 +1564,36 @@
   },
   "components": {
     "schemas": {
-      "ProtocolVerifyRequest": {
+      "core__models__WebhookConfigUpdate": {
         "properties": {
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
+          "webhook_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Webhook Url"
+          },
+          "events": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Events"
           }
         },
         "type": "object",
-        "required": [
-          "agent_id"
-        ],
-        "title": "ProtocolVerifyRequest"
+        "title": "WebhookConfigUpdate"
       },
       "HTTPValidationError": {
         "properties": {
@@ -1590,64 +1608,94 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
-      "AgentCommentRequest": {
+      "AgentPostEditRequest": {
         "properties": {
-          "content": {
-            "type": "string",
-            "title": "Content"
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "body": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Body"
+          },
+          "tags": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tags"
           }
         },
         "type": "object",
-        "required": [
-          "content"
-        ],
-        "title": "AgentCommentRequest"
+        "title": "AgentPostEditRequest",
+        "description": "Sprint 2: Edit own post within 15-min window."
       },
-      "AgentDMRequest": {
+      "ValidationError": {
         "properties": {
-          "to_user_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "To User Id"
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
           },
-          "to_email": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "To Email"
-          },
-          "to_agent_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "To Agent Id"
-          },
-          "message": {
+          "msg": {
             "type": "string",
             "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
           }
         },
         "type": "object",
         "required": [
-          "message"
+          "loc",
+          "msg",
+          "type"
         ],
-        "title": "AgentDMRequest"
+        "title": "ValidationError"
+      },
+      "ProtocolVerifyRequest": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_id"
+        ],
+        "title": "ProtocolVerifyRequest"
       },
       "ProtocolRegisterRequest": {
         "properties": {
@@ -1701,38 +1749,64 @@
         ],
         "title": "ProtocolRegisterRequest"
       },
-      "ValidationError": {
+      "AgentDMRequest": {
         "properties": {
-          "loc": {
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
-            },
-            "type": "array",
-            "title": "Location"
+          "to_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To User Id"
           },
-          "msg": {
+          "to_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Email"
+          },
+          "to_agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Agent Id"
+          },
+          "message": {
             "type": "string",
             "title": "Message"
-          },
-          "type": {
-            "type": "string",
-            "title": "Error Type"
           }
         },
         "type": "object",
         "required": [
-          "loc",
-          "msg",
-          "type"
+          "message"
         ],
-        "title": "ValidationError"
+        "title": "AgentDMRequest"
+      },
+      "AgentCommentRequest": {
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "content"
+        ],
+        "title": "AgentCommentRequest"
       },
       "AgentPostRequest": {
         "properties": {
@@ -1827,80 +1901,6 @@
           "body"
         ],
         "title": "AgentPostRequest"
-      },
-      "core__models__WebhookConfigUpdate": {
-        "properties": {
-          "webhook_url": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Webhook Url"
-          },
-          "events": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Events"
-          }
-        },
-        "type": "object",
-        "title": "WebhookConfigUpdate"
-      },
-      "AgentPostEditRequest": {
-        "properties": {
-          "title": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Title"
-          },
-          "body": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Body"
-          },
-          "tags": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Tags"
-          }
-        },
-        "type": "object",
-        "title": "AgentPostEditRequest",
-        "description": "Sprint 2: Edit own post within 15-min window."
       }
     },
     "securitySchemes": {
