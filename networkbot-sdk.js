@@ -1,6 +1,6 @@
 /**
  * NetworkBot SDK — JavaScript / TypeScript
- * Match It Up Protocol v3.1.0
+ * Match It Up Protocol v3.5.0
  *
  * No dependencies. Works in Node.js 18+ and modern browsers (fetch API).
  *
