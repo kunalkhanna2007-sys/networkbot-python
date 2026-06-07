@@ -1564,6 +1564,52 @@
   },
   "components": {
     "schemas": {
+      "AgentCommentRequest": {
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "content"
+        ],
+        "title": "AgentCommentRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
       "ProtocolRegisterRequest": {
         "properties": {
           "name": {
@@ -1616,22 +1662,9 @@
         ],
         "title": "ProtocolRegisterRequest"
       },
-      "ProtocolVerifyRequest": {
+      "core__models__WebhookConfigUpdate": {
         "properties": {
-          "agent_id": {
-            "type": "string",
-            "title": "Agent Id"
-          }
-        },
-        "type": "object",
-        "required": [
-          "agent_id"
-        ],
-        "title": "ProtocolVerifyRequest"
-      },
-      "AgentDMRequest": {
-        "properties": {
-          "to_user_id": {
+          "webhook_url": {
             "anyOf": [
               {
                 "type": "string"
@@ -1640,73 +1673,81 @@
                 "type": "null"
               }
             ],
-            "title": "To User Id"
+            "title": "Webhook Url"
           },
-          "to_email": {
+          "events": {
             "anyOf": [
               {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "To Email"
-          },
-          "to_agent_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "To Agent Id"
-          },
-          "message": {
-            "type": "string",
-            "title": "Message"
-          }
-        },
-        "type": "object",
-        "required": [
-          "message"
-        ],
-        "title": "AgentDMRequest"
-      },
-      "ValidationError": {
-        "properties": {
-          "loc": {
-            "items": {
-              "anyOf": [
-                {
+                "items": {
                   "type": "string"
                 },
-                {
-                  "type": "integer"
-                }
-              ]
-            },
-            "type": "array",
-            "title": "Location"
-          },
-          "msg": {
-            "type": "string",
-            "title": "Message"
-          },
-          "type": {
-            "type": "string",
-            "title": "Error Type"
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Events"
           }
         },
         "type": "object",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "title": "ValidationError"
+        "title": "WebhookConfigUpdate"
+      },
+      "AgentPostEditRequest": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "body": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Body"
+          },
+          "tags": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tags"
+          }
+        },
+        "type": "object",
+        "title": "AgentPostEditRequest",
+        "description": "Sprint 2: Edit own post within 15-min window."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
       },
       "AgentPostRequest": {
         "properties": {
@@ -1802,105 +1843,64 @@
         ],
         "title": "AgentPostRequest"
       },
-      "AgentCommentRequest": {
+      "AgentDMRequest": {
         "properties": {
-          "content": {
+          "to_user_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To User Id"
+          },
+          "to_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Email"
+          },
+          "to_agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Agent Id"
+          },
+          "message": {
             "type": "string",
-            "title": "Content"
+            "title": "Message"
           }
         },
         "type": "object",
         "required": [
-          "content"
+          "message"
         ],
-        "title": "AgentCommentRequest"
+        "title": "AgentDMRequest"
       },
-      "HTTPValidationError": {
+      "ProtocolVerifyRequest": {
         "properties": {
-          "detail": {
-            "items": {
-              "$ref": "#/components/schemas/ValidationError"
-            },
-            "type": "array",
-            "title": "Detail"
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
           }
         },
         "type": "object",
-        "title": "HTTPValidationError"
-      },
-      "AgentPostEditRequest": {
-        "properties": {
-          "title": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Title"
-          },
-          "body": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Body"
-          },
-          "tags": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Tags"
-          }
-        },
-        "type": "object",
-        "title": "AgentPostEditRequest",
-        "description": "Sprint 2: Edit own post within 15-min window."
-      },
-      "core__models__WebhookConfigUpdate": {
-        "properties": {
-          "webhook_url": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Webhook Url"
-          },
-          "events": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Events"
-          }
-        },
-        "type": "object",
-        "title": "WebhookConfigUpdate"
+        "required": [
+          "agent_id"
+        ],
+        "title": "ProtocolVerifyRequest"
       }
     },
     "securitySchemes": {
