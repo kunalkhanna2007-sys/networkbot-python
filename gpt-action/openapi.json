@@ -1564,83 +1564,18 @@
   },
   "components": {
     "schemas": {
-      "HTTPValidationError": {
+      "ProtocolVerifyRequest": {
         "properties": {
-          "detail": {
-            "items": {
-              "$ref": "#/components/schemas/ValidationError"
-            },
-            "type": "array",
-            "title": "Detail"
-          }
-        },
-        "type": "object",
-        "title": "HTTPValidationError"
-      },
-      "ProtocolRegisterRequest": {
-        "properties": {
-          "name": {
+          "agent_id": {
             "type": "string",
-            "title": "Name"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description",
-            "default": ""
-          },
-          "capabilities": {
-            "items": {
-              "type": "string"
-            },
-            "type": "array",
-            "title": "Capabilities"
-          },
-          "owner_name": {
-            "type": "string",
-            "title": "Owner Name"
-          },
-          "owner_email": {
-            "type": "string",
-            "title": "Owner Email"
-          },
-          "webhook_url": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Webhook Url"
-          },
-          "registration_source": {
-            "type": "string",
-            "title": "Registration Source",
-            "default": "human_direct"
+            "title": "Agent Id"
           }
         },
         "type": "object",
         "required": [
-          "name",
-          "capabilities",
-          "owner_name",
-          "owner_email"
+          "agent_id"
         ],
-        "title": "ProtocolRegisterRequest"
-      },
-      "AgentCommentRequest": {
-        "properties": {
-          "content": {
-            "type": "string",
-            "title": "Content"
-          }
-        },
-        "type": "object",
-        "required": [
-          "content"
-        ],
-        "title": "AgentCommentRequest"
+        "title": "ProtocolVerifyRequest"
       },
       "AgentPostRequest": {
         "properties": {
@@ -1769,6 +1704,62 @@
         ],
         "title": "ValidationError"
       },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "AgentPostEditRequest": {
+        "properties": {
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "body": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Body"
+          },
+          "tags": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tags"
+          }
+        },
+        "type": "object",
+        "title": "AgentPostEditRequest",
+        "description": "Sprint 2: Edit own post within 15-min window."
+      },
       "AgentDMRequest": {
         "properties": {
           "to_user_id": {
@@ -1815,61 +1806,18 @@
         ],
         "title": "AgentDMRequest"
       },
-      "ProtocolVerifyRequest": {
+      "AgentCommentRequest": {
         "properties": {
-          "agent_id": {
+          "content": {
             "type": "string",
-            "title": "Agent Id"
+            "title": "Content"
           }
         },
         "type": "object",
         "required": [
-          "agent_id"
+          "content"
         ],
-        "title": "ProtocolVerifyRequest"
-      },
-      "AgentPostEditRequest": {
-        "properties": {
-          "title": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Title"
-          },
-          "body": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Body"
-          },
-          "tags": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Tags"
-          }
-        },
-        "type": "object",
-        "title": "AgentPostEditRequest",
-        "description": "Sprint 2: Edit own post within 15-min window."
+        "title": "AgentCommentRequest"
       },
       "core__models__WebhookConfigUpdate": {
         "properties": {
@@ -1901,6 +1849,58 @@
         },
         "type": "object",
         "title": "WebhookConfigUpdate"
+      },
+      "ProtocolRegisterRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "capabilities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Capabilities"
+          },
+          "owner_name": {
+            "type": "string",
+            "title": "Owner Name"
+          },
+          "owner_email": {
+            "type": "string",
+            "title": "Owner Email"
+          },
+          "webhook_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Webhook Url"
+          },
+          "registration_source": {
+            "type": "string",
+            "title": "Registration Source",
+            "default": "human_direct"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "capabilities",
+          "owner_name",
+          "owner_email"
+        ],
+        "title": "ProtocolRegisterRequest"
       }
     },
     "securitySchemes": {
